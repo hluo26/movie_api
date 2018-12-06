@@ -1,0 +1,8 @@
+#title1{
+  text-align: justify;
+}
+
+.jumbotron {
+    background-color:transparent !important;
+    background-image: linear-gradient(to bottom, grey , white);
+}
