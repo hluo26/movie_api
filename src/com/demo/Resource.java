@@ -23,6 +23,8 @@ public class Resource{
 	@Path("/get/list")
 	public Response listback()
 	{
+		if(l1.size()>=1)
+		{
 			for(int i=0;i<l1.size();i++)
 			{
 				DataModel x = l1.get(i);
@@ -30,7 +32,8 @@ public class Resource{
 				System.out.println("year is "+x.getYear());
 				System.out.println("genre is "+x.getGenre());
 			}
-		return Response.status(Response.Status.OK).entity(l1).build();
+		}
+		return Response.ok(l1).build();
 	}
 	
 	@PUT
