@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.net.*" %>
+<%@page import="java.io.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +36,20 @@
           </div>
           <div class="col-sm-10">
             <h5>Testing movie API</h5>
-           	
+           	<%
+           		String url = request.getRequestURL().toString();
+           		String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) + request.getContextPath() + "/";
+            	URL dest = new URL(baseURL+"service/get/list");
+            	URLConnection yc = dest.openConnection();
+            	BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                        yc.getInputStream()));
+				String inputLine;
+
+				while ((inputLine = in.readLine()) != null)
+    				System.out.println(inputLine);
+				in.close();
+           	%>
           </div>
         </div>
       </div>
