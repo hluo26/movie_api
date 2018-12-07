@@ -60,4 +60,29 @@ public class Resource{
 		l1.add(d1);
 		return "POST!!! " + name + " " + year + " " + genre;
 	}
+	
+	@DELETE
+	@Path("/delete/{name}")
+	public Response deleteMovieById(@PathParam("name") String name)
+	{      
+		System.out.println("Before: ");
+		this.print();
+		for(DataModel movie: l1) {
+			if(movie.getName() == name) {
+				l1.remove(movie);
+				return Response.status(202).entity("Movie deleted successfully !!").build();
+			}
+		}
+		System.out.println("After: ");
+		this.print();
+	    return Response.status(304).encoding("Movie not deleted").build();
 	}
+	
+	public void print(){
+		for(DataModel movie: l1) {
+			System.out.print(movie.getName() +" ");
+			System.out.println();
+		}
+	}
+	
+}
