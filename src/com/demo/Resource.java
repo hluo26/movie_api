@@ -80,9 +80,42 @@ public class Resource{
 	
 	@PUT
 	@Consumes(MediaType.TEXT_PLAIN)
-	@Path("/put")
-	public String change(String x) {
-		return "PUT!!! " + x;
+	@Path("/put/name")
+	public Response updateMovieName(@PathParam("name") String name,@PathParam("Changedname") String Newname)
+	{      
+		System.out.println("Before: ");
+		this.print();
+		for(DataModel movie: l1) {
+			if(movie.getName().equals(name)) {
+				movie.setName(Newname);
+				return Response.status(202).entity("Movie changed successfully !!").build();
+			}
+		}
+		System.out.println("After: ");
+		this.print();
+	    return Response.status(304).encoding("Movie not changed").build();
+	}
+	
+	@PUT
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Path("/put/seen")
+	public Response updateMovieSeen(@PathParam("name") String name)
+	{      
+		//System.out.println("Before: ");
+		this.print();
+		for(DataModel movie: l1) {
+			if(movie.getName().equals(name)) {
+				if(movie.isWatched())
+				{
+					return Response.status(202).entity("Movie already seen").build();
+				}
+				movie.setWatched(true);
+				return Response.status(202).entity("Movie changed successfully !!").build();
+			}
+		}
+		System.out.println("After: ");
+		this.print();
+	    return Response.status(304).encoding("Movie not changed").build();
 	}
 	
 	@POST
