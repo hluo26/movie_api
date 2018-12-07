@@ -140,18 +140,17 @@ public class Resource{
 	@Path("/delete/{name}")
 	public Response deleteMovieById(@PathParam("name") String name)
 	{      
-		System.out.println("Before: ");
-		this.print();
 		for(DataModel movie: l1) {
-			if(movie.getName() == name) {
+			if((movie.getName().toLowerCase()).equals( name.toLowerCase())) {
 				l1.remove(movie);
+				System.out.println(name + " Deleted");
 				return Response.status(202).entity("Movie deleted successfully !!").build();
 			}
 		}
-		System.out.println("After: ");
-		this.print();
-	    return Response.status(304).encoding("Movie not deleted").build();
+	
+	    return Response.status(304).entity("Movie not deleted").build();
 	}
+
 	
 	public void print(){
 		for(DataModel movie: l1) {
