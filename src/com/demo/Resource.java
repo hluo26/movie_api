@@ -79,9 +79,9 @@ public class Resource{
 	}
 	
 	@PUT
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/put/name")
-	public Response updateMovieName(@PathParam("name") String name,@PathParam("Changedname") String Newname)
+	public Response updateMovieName(@FormParam("name") String name,@FormParam("Changedname") String Newname)
 	{      
 		System.out.println("Before: ");
 		this.print();
@@ -97,9 +97,9 @@ public class Resource{
 	}
 	
 	@PUT
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/put/seen")
-	public Response updateMovieSeen(@PathParam("name") String name)
+	public Response updateMovieSeen(@FormParam("name") String name)
 	{      
 		//System.out.println("Before: ");
 		this.print();

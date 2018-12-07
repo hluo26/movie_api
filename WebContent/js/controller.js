@@ -1,17 +1,14 @@
-var mycontroller = angular.module('mycontroller',[]);
+var app = angular.module('myapp', []);
 
-mycontroller.controller("SearchController", function ($scope,$http) {
-    $scope.searchtext;
-    $scope.searchgraduate;
-    $scope.searchyear;
-    $scope.searchable = false;
-    $scope.check = function(){
-      $scope.searchable = true;
-      $scope.searchtext = $scope.text1;
-      $scope.searchgraduate = $scope.grad1;
-    };
+app.controller("MovieController", function ($scope,$http) {
+    $scope.list;
+    $scope.get1 = function()
+    {console.log("here")
+    	$http.get("http://localhost:8080/movie/service/get/list").then(
+        		function(response){
+        			console.log(response);
+        			$scope.list = response.data;
+        		});
+    }
 });
 
-mycontroller.controller("AddController", function ($scope) {
-  
-});

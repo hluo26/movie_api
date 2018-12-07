@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/mine.css" />
   </head>
-  <body ng-controller="SearchController">
+  <body ng-controller="MovieController">
     <div class="jumbotron grey-gradient color-block">
       <div class="container">
         <div class="row">
@@ -49,26 +49,26 @@
                   </select>
                 </div>
                 <div class="form-group col-md-1">
-                  <button type="submit" class="btn btn-primary" ng-click="check()">
+                  <button type="submit" class="btn btn-primary" ng-click="get1()">
                     Submit
                   </button>
                 </div>
               </div>
             </form>
-            <div class="table-responsive" ng-show="searchable">
+            
+            <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
                 <tr class="table-primary">
-                  <th>Title</th>
-                  <th>Time</th>
-                  <th>Description</th>
+                  <th>Name</th>
+                  <th>Year</th>
+                  <th>Genre</th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="x in info | filter:{title:searchtext,graduateinfo:searchgraduate} ">
-                  <td>{{x.name}}</td>
-                  <td>{{x.year}}</td>
-                  <td>{{x.genre}}</td>
+                <tr ng-repeat="x in list ">
+                <td>{{x.name}}</td>
+                  <td>{{x.watched}}</td>
                 </tr>
               </tbody>
               </table>
