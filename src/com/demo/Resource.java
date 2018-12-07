@@ -1,16 +1,58 @@
 package com.demo;
+import java.io.*;
 import java.util.ArrayList;
 
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 /***    helloWorld Root Resource*/
 @Path("/")
 public class Resource{  
 	private static ArrayList<DataModel> l1 = new ArrayList<>();
+	
+	static {
+		File file  = new File("C:\\Users\\luo19\\OneDrive\\documents\\GitHub\\movie\\src\\com\\demo\\movieList.txt");
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			
+			String st;
+			try {
+				while((st = br.readLine()) != null) {
+					DataModel movie = new DataModel();
+					
+					movie.setName(st.substring(0, st.length()-2));
+					
+					if(st.charAt(st.length()-1) == '1') {
+						movie.setWatched(true);
+					}
+					else
+						movie.setWatched(false);
+					
+					l1.add(movie);
+					
+					
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@GET  
 	@Produces(MediaType.TEXT_PLAIN)  
 	@Path("/get/{name}") 
