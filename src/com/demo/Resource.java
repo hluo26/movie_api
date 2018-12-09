@@ -66,9 +66,9 @@ public class Resource{
 		else
 		{
 			ArrayList<DataModel> l2 = new ArrayList<>();
+			String cap = Value.substring(0, 1).toUpperCase() + Value.substring(1);
 			if(Orderby.equals("Name"))
 			{
-				String cap = Value.substring(0, 1).toUpperCase() + Value.substring(1);
 					for(DataModel x:l1)
 					{
 						if(x.getName().startsWith(cap))
@@ -77,6 +77,35 @@ public class Resource{
 						}
 					}
 					return Response.ok(l2).build();
+			}
+			else if(Orderby.equals("Seen"))
+			{
+				if(cap.equals("Seen")||cap.equals("True")||cap.equals("Yes")||cap.equals("Y"))
+				{
+					for(DataModel x:l1)
+					{
+						if(x.isWatched())
+						{
+							l2.add(x);
+						}
+					}
+					return Response.ok(l2).build();
+				}
+				else if(cap.equals("Unseen")||cap.equals("False")||cap.equals("No")||cap.equals("N"))
+				{
+					for(DataModel x:l1)
+					{
+						if(!x.isWatched())
+						{
+							l2.add(x);
+						}
+					}
+					return Response.ok(l2).build();
+				}
+				else
+				{
+					return Response.ok(l1).build();
+				}
 			}
 			else {
 				return Response.ok(l1).build();
