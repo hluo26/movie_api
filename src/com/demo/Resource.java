@@ -1,18 +1,10 @@
 package com.demo;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
 
 /***    helloWorld Root Resource*/
 @Path("/")
@@ -63,19 +55,32 @@ public class Resource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/get/list")
-	public Response listback()
+	public Response listback(@DefaultValue("Not") @QueryParam("Orberby") String Orderby,
+							@QueryParam("Value") String Value)
 	{
-		if(l1.size()>=1)
+		System.out.println("Order is "+Orderby+" Value is "+Value);
+		if(!Value.equals("undefined") || Orderby.equals("Not"))
 		{
-			for(int i=0;i<l1.size();i++)
+			return Response.ok(l1).build();
+		}
+		else
+		{
+			ArrayList<DataModel> l2 = new ArrayList<>();
+			if(Orderby.equals("Name"))
 			{
-				DataModel x = l1.get(i);
-				System.out.println("name is "+x.getName());
-				System.out.println("year is "+x.getYear());
-				System.out.println("genre is "+x.getGenre());
+				for(DataModel x:l1)
+				{
+					if(x.getName().equals(Value))
+					{
+						l2.add(x);
+					}
+				}
+				return Response.ok(l2).build();
+			}
+			else {
+				return Response.ok(l1).build();
 			}
 		}
-		return Response.ok(l1).build();
 	}
 	
 	@PUT
