@@ -55,11 +55,11 @@ public class Resource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/get/list")
-	public Response listback(@DefaultValue("Not") @QueryParam("Orberby") String Orderby,
-							@QueryParam("Value") String Value)
+	public Response listback(@DefaultValue("Not") @QueryParam("orderby") String Orderby,
+			@DefaultValue("undefined")@QueryParam("value") String Value)
 	{
 		System.out.println("Order is "+Orderby+" Value is "+Value);
-		if(!Value.equals("undefined") || Orderby.equals("Not"))
+		if(Value.equals("undefined") || Orderby.equals("Not"))
 		{
 			return Response.ok(l1).build();
 		}
@@ -68,14 +68,15 @@ public class Resource{
 			ArrayList<DataModel> l2 = new ArrayList<>();
 			if(Orderby.equals("Name"))
 			{
-				for(DataModel x:l1)
-				{
-					if(x.getName().equals(Value))
+				String cap = Value.substring(0, 1).toUpperCase() + Value.substring(1);
+					for(DataModel x:l1)
 					{
-						l2.add(x);
+						if(x.getName().startsWith(cap))
+						{
+							l2.add(x);
+						}
 					}
-				}
-				return Response.ok(l2).build();
+					return Response.ok(l2).build();
 			}
 			else {
 				return Response.ok(l1).build();
