@@ -1,5 +1,7 @@
 package com.demo;
 import java.io.*;
+import java.lang.invoke.MethodHandles;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +12,11 @@ import javax.ws.rs.core.*;
 @Path("/")
 public class Resource{  
 	private static ArrayList<DataModel> l1 = new ArrayList<>();
-	
+
 	static {
-		File file  = new File("C:\\Users\\Amanda\\Documents\\GitHub\\movie_api\\src\\com\\demo\\movieList.txt");
+		Class<?> x = MethodHandles.lookup().lookupClass();
+		String path = x.getResource("movieList.txt").getPath();
+		File file  = new File(path);
 		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
