@@ -12,26 +12,44 @@ public class Resource{
 	private static ArrayList<DataModel> l1 = new ArrayList<>();
 	
 	static {
-		File file  = new File("C:\\Users\\luo19\\OneDrive\\documents\\GitHub\\movie\\src\\com\\demo\\movieList.txt");
+		File file  = new File("C:\\Users\\Amanda\\Documents\\GitHub\\movie_api\\src\\com\\demo\\movieList.txt");
 		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			
-			String st;
+			String movieDetailsStr;
 			try {
-				while((st = br.readLine()) != null) {
+				while((movieDetailsStr = br.readLine()) != null) {
 					DataModel movie = new DataModel();
 					
-					movie.setName(st.substring(0, st.length()-2));
-					
-					if(st.charAt(st.length()-1) == '1') {
-						movie.setWatched(true);
+					String[] movieDetailsArray = movieDetailsStr.split("\\|\\|\\|");
+					if(movieDetailsArray.length == 4) {
+						movie.setName(movieDetailsArray[0]);
+						//Checks if the year string can be converted to an integer
+						try {
+							movie.setYear(Integer.parseInt(movieDetailsArray[1]));
+						}catch(Exception e){
+							System.out.println("Year is not an Integer");
+						}finally {
+							movie.setGenre(movieDetailsArray[2]);
+							if(movieDetailsArray[3].equals("1")) 
+								movie.setWatched(true);
+							else
+								movie.setWatched(false);
+							
+							l1.add(movie);
+						}
 					}
 					else
-						movie.setWatched(false);
+						System.out.println("Could not Parse movie correctly");
 					
-					l1.add(movie);
-					
+					//movie.setName(movieDetailsStr.substring(0, movieDetailsStr.length()-2));
+//					if(movieDetailsStr.charAt(movieDetailsStr.length()-1) == '1') {
+//						movie.setWatched(true);
+//					}
+//					else
+//						movie.setWatched(false);
+									
 					
 				}
 			} catch (IOException e) {
@@ -56,22 +74,45 @@ public class Resource{
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/get/list")
 	public Response listback(@DefaultValue("Not") @QueryParam("orderby") String Orderby,
-			@DefaultValue("undefined")@QueryParam("value") String Value)
+			@DefaultValue("undefined") @QueryParam("value") String Value)
 	{
 		System.out.println("Order is "+Orderby+" Value is "+Value);
-		if(Value.equals("undefined") || Orderby.equals("Not"))
+		
+		ArrayList<DataModel> l2 = new ArrayList<>();
+		if(Value.equals("") || Value.equals("undefined") || Orderby.equals("Not"))
 		{
 			return Response.ok(l1).build();
 		}
 		else
 		{
-			ArrayList<DataModel> l2 = new ArrayList<>();
+
 			String cap = Value.substring(0, 1).toUpperCase() + Value.substring(1);
 			if(Orderby.equals("Name"))
 			{
 					for(DataModel x:l1)
 					{
 						if(x.getName().startsWith(cap))
+						{
+							l2.add(x);
+						}
+					}
+					return Response.ok(l2).build();
+			}
+			else if(Orderby.equals("Year"))
+			{
+					for(DataModel x:l1)
+					{
+						if((x.getYear() + "").startsWith(cap)){
+							l2.add(x);
+						}
+					}
+					return Response.ok(l2).build();
+			}
+			else if(Orderby.equals("Genre"))
+			{
+					for(DataModel x:l1)
+					{
+						if(x.getGenre().startsWith(cap))
 						{
 							l2.add(x);
 						}
