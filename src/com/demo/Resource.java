@@ -213,17 +213,19 @@ public class Resource{
 	}
 	
 	@DELETE
-	@Path("/delete/{name}")
-	public Response deleteMovieById(@PathParam("name") String name)
-	{      
-		for(DataModel movie: l1) {
-			if((movie.getName().toLowerCase()).equals( name.toLowerCase())) {
-				l1.remove(movie);
-				System.out.println(name + " Deleted");
-				return Response.status(202).entity("Movie deleted successfully !!").build();
+	@Path("/delete")
+	public Response deleteMovieById(@DefaultValue("noName") @QueryParam("name") String name)
+	{   
+		if(name != "noName") {
+			for(DataModel movie: l1) {
+				if((movie.getName().toLowerCase()).equals( name.toLowerCase())) {
+					l1.remove(movie);
+					System.out.println(name + " Deleted");
+					return Response.ok(l1).build();
+	//				return Response.status(202).entity("Movie deleted successfully !!").build();
+				}
 			}
 		}
-	
 	    return Response.status(304).entity("Movie not deleted").build();
 	}
 

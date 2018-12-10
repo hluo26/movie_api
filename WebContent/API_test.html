@@ -67,14 +67,16 @@
                   <th>Year</th>
                   <th>Genre</th>
                   <th>Seen</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="x in list ">
-                <td>{{x.name}}</td>
-                <td>{{x.year}}</td>
-                <td>{{x.genre}}</td>
-                <td>{{x.watched}}</td>
+             		<td>{{x.name}}</td>
+              	 	<td>{{x.year}}</td>
+               		<td>{{x.genre}}</td>
+               		<td>{{x.watched}}</td>
+               		<td><button type="submit" class="btn btn-primary" ng-click="removeMovieFromList(x.name)">Delete</button></td>
                 </tr>
               </tbody>
               </table>

@@ -19,5 +19,21 @@ app.controller("MovieController", function ($scope,$http) {
         			$scope.list = response.data;
         		});
     };
+    $scope.removeMovieFromList = function(name)
+    {
+    	console.log(typeof name);
+    	var url = "http://localhost:8080/movie/service/delete";
+    	$http(
+    			{
+    		        method: 'DELETE',
+    		        url: url,
+    		        params: {name: name}
+    		    }
+    			).then(
+        		function(response){
+        			console.log(response);
+        			$scope.list = response.data;
+        		});
+    };
 });
 
