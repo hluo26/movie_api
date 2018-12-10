@@ -1,197 +1,197 @@
-Shawshank Redemption 1
-Aliens 1
-Starship Troopers 0
-The Usual Suspects 1
-Platoon 0
-Scott Pilgrim vs. The World 1
-Casablanca 0
-Citizen Kane 1
-Birdman 0
-Goodfellas 0
-Reservoir Dogs 1
-Face/Off 1
-Point Break 1
-Demolition Man 0
-Speed 1
-Air Force One 1
-Lethal Weapon(s) 0
-Bourne Identity 1
-Bourne Supremacy 1
-Bourne Ultimatum 1
-Bad Boy(s) 0
-Blade(s) 0
-The Fugitive 1
-First Blood(s) / Rambo(s) 0
-Mad Max 2: The Road Warrior 0
-Max Max 3: Beyond the Thunderdome 0
-Die Hard(s) 0
-Airplane 0
-Young Frankenstein 0
-Life of Brian 0
-The Thing 0
-Rocky(s) 0
-A Beautiful Mind 0
-The Pianist 0
-Jerry Maguire 0
-Risky Business 0
-Ghost 0
-Driving Miss Daisy 0
-Working Girl 0
-Taxi Driver 0
-Gangs of New York 0
-A Clockwork Orange 0
-16 Candles 0
-Gremlins 0
-The Shining 0
-Beverly Hills Cop(s) 0
-Poltergeist 0
-The Evil Dead(s) 0
-Eternal Sunshine of the Spotless Mind 0
-Fast Times at Ridgemont High 0
-The Breakfast Club 0
-Full Metal Jacket 0
-Big Trouble in Little China 0
-Cobra 0
-Escape from New York 0
-A Nightmare on Elm Street 0
-Halloween 0
-10 Things I Hate About You 0
-Matchstick Men 0
-The Talented Mr. Ripley 0
-The Big Lebowski 1
-The Truman Show 1
-American Gangster 0
-American Psycho 0
-Mulholland Drive 0
-Dark City 0
-Fargo 0
-Hard Boiled 0
-Insomnia 0
-Jackie Brown 0
-L.A. Confidential 0
-Leon the Professional 0
-The Manchurian Candidate 0
-The Grifters 0
-The Killer 0
-The Silence of the Lambs 0
-Shutter Island 0
-Sin City 0
-Miami Vice 0
-Casino 0
-Not Another Teen Movie 0
-Heat 0
-Executive Decision 0
-Zodiac 0
-Vanilla Sky 0
-Magnolia 0
-Conan the Barbarian/Destroyer 0
-Dirty Harry 0
-The Raid(s) 0
-Ninja Assassin 0
-Shaolin Soccer 0
-Ronin 0
-Rob Roy 0
-Broken Arrow 0
-The Running Man 0
-Eraser 0
-End of Days 0
-Happy Gilmore 0
-Mars Attacks 0
-Timecop 0
-Universal Soldier 0
-The Abyss 0
-Galaxy Quest 0
-Sleepy Hollow 1
-Empire of the Sun 0
-Hook 0
-JFK 0
-Pretty Woman 0
-The Notebook 0
-Definitely, Maybe 0
-Juno 0
-1408 1
-Say Anything 0
-Better Off Dead 0
-Dazed and Confused 0
-U-571 0
-Crimson Tide 0
-Under Siege 0
-Se7en 0
-Donnie Brasco 0
-Oceans 11, 12, 13 0
-American History X 0
-Layer Cake 0
-The Untouchables 0
-Carlito's Way 0
-The Host (2006) 0
-The Godfather Part III 0
-Ran 0
-Conspiracy Theory 0
-Stand By Me 0
-Run Lola Run 0
-Dreams (1990) 0
-Hot Fuzz 1
-The World's End 1
-Unstoppable (2010) 0
-The Dirty Dozen 0
-The Great Escape 0
-Escape from Alcatraz 0
-Crank 0
-The Transporter 0
-Breakfast at Tiffany's 1
-Zoolander 1
-Anchorman(s) 0
-Talladega Nights: The Ballad of Ricky Bobby 0
-Braveheart 0
-God of Gamblers 0
-Police Story 4 0
-Superman(s) 1
-The Italian Job 0
-The Quick and the Dead 1
-Watchmen 1
-Pan's Labyrinth 0
-Swordfish 0
-Speed Racer 0
-Training Day 1
-Kiss Kiss Bang Bang 0
-The Martian 1
-Mean Girls 0
-Star Trek III: The Search for Spock 1
-Star Trek IV: The Voyage Home 1
-Star Trek V: The Final Frontier 0
-Star Trek VI: The Undiscovered Country 0
-Star Trek Generations 0
-Star Trek: First Contact 0
-The Lost Boys 0
-The Mist 1
-Love and Mercy 1
-Borat 1
-Ip Man 0
-The Revenant 0
-Rear Window 1
-Paper Moon 0
-Gilda 1
-8 1/2 1
-Moonlight 0
-The Nice Guys 1
-Friday 1
-It (2017) 1
-Logan Lucky 1
-The Hitman's Bodyguard 1
-The Mummy (2017) 1
-Hacksaw Ridge 0
-Hail, Caesar! 0
-The Man from U.N.C.L.E. 1
-The Hateful Eight 1
-North by Northwest 0
-Pretty in Pink 0
-Spartacus 1
-Chinatown 1
-The Grand Budapest Hotel 1
-Isle of Dogs 1
-The Royal Tenenbaums 0
-Vertigo 0
-Mission Impossible: Fallout 1
-Big 1
-That Thing You Do! 0
-About Time 0
+Shawshank Redemption|||1994|||Drama|||1
+Aliens|||1986|||Horror|||1
+Starship Troopers|||1997|||Action|||0
+The Usual Suspects|||1995|||Mystery|||1
+Platoon|||1986|||Action|||0
+Scott Pilgrim vs. The World||| ||| |||1
+Casablanca||| ||| |||0
+Citizen Kane||| ||| |||1
+Birdman||| ||| |||0
+Goodfellas||| ||| |||0
+Reservoir Dogs||| ||| |||1
+Face/Off||| ||| |||1
+Point Break||| ||| |||1
+Demolition Man||| ||| |||0
+Speed||| ||| |||1
+Air Force One||| ||| |||1
+Lethal Weapon(s)||| ||| |||0
+Bourne Identity||| ||| |||1
+Bourne Supremacy||| ||| |||1
+Bourne Ultimatum||| ||| |||1
+Bad Boy(s)||| ||| |||0
+Blade(s)||| ||| |||0
+The Fugitive||| ||| |||1
+First Blood(s) / Rambo(s)||| ||| |||0
+Mad Max 2: The Road Warrior||| ||| |||0
+Max Max 3: Beyond the Thunderdome||| ||| |||0
+Die Hard(s)||| ||| |||0
+Airplane||| ||| |||0
+Young Frankenstein||| ||| |||0
+Life of Brian||| ||| |||0
+The Thing||| ||| |||0
+Rocky(s)||| ||| |||0
+A Beautiful Mind||| ||| |||0
+The Pianist||| ||| |||0
+Jerry Maguire||| ||| |||0
+Risky Business||| ||| |||0
+Ghost||| ||| |||0
+Driving Miss Daisy||| ||| |||0
+Working Girl||| ||| |||0
+Taxi Driver||| ||| |||0
+Gangs of New York||| ||| |||0
+A Clockwork Orange||| ||| |||0
+16 Candles||| ||| |||0
+Gremlins||| ||| |||0
+The Shining||| ||| |||0
+Beverly Hills Cop(s)||| ||| |||0
+Poltergeist||| ||| |||0
+The Evil Dead(s)||| ||| |||0
+Eternal Sunshine of the Spotless Mind||| ||| |||0
+Fast Times at Ridgemont High||| ||| |||0
+The Breakfast Club||| ||| |||0
+Full Metal Jacket||| ||| |||0
+Big Trouble in Little China||| ||| |||0
+Cobra||| ||| |||0
+Escape from New York||| ||| |||0
+A Nightmare on Elm Street||| ||| |||0
+Halloween||| ||| |||0
+10 Things I Hate About You||| ||| |||0
+Matchstick Men||| ||| |||0
+The Talented Mr. Ripley||| ||| |||0
+The Big Lebowski||| ||| |||1
+The Truman Show||| ||| |||1
+American Gangster||| ||| |||0
+American Psycho||| ||| |||0
+Mulholland Drive||| ||| |||0
+Dark City||| ||| |||0
+Fargo||| ||| |||0
+Hard Boiled||| ||| |||0
+Insomnia||| ||| |||0
+Jackie Brown||| ||| |||0
+L.A. Confidential||| ||| |||0
+Leon the Professional||| ||| |||0
+The Manchurian Candidate||| ||| |||0
+The Grifters||| ||| |||0
+The Killer||| ||| |||0
+The Silence of the Lambs||| ||| |||0
+Shutter Island||| ||| |||0
+Sin City||| ||| |||0
+Miami Vice||| ||| |||0
+Casino||| ||| |||0
+Not Another Teen Movie||| ||| |||0
+Heat||| ||| |||0
+Executive Decision||| ||| |||0
+Zodiac||| ||| |||0
+Vanilla Sky||| ||| |||0
+Magnolia||| ||| |||0
+Conan the Barbarian/Destroyer||| ||| |||0
+Dirty Harry||| ||| |||0
+The Raid(s)||| ||| |||0
+Ninja Assassin||| ||| |||0
+Shaolin Soccer||| ||| |||0
+Ronin||| ||| |||0
+Rob Roy||| ||| |||0
+Broken Arrow||| ||| |||0
+The Running Man||| ||| |||0
+Eraser||| ||| |||0
+End of Days||| ||| |||0
+Happy Gilmore||| ||| |||0
+Mars Attacks||| ||| |||0
+Timecop||| ||| |||0
+Universal Soldier||| ||| |||0
+The Abyss||| ||| |||0
+Galaxy Quest||| ||| |||0
+Sleepy Hollow||| ||| |||1
+Empire of the Sun||| ||| |||0
+Hook||| ||| |||0
+JFK||| ||| |||0
+Pretty Woman||| ||| |||0
+The Notebook||| ||| |||0
+Definitely, Maybe||| ||| |||0
+Juno||| ||| |||0
+1408||| ||| |||1
+Say Anything||| ||| |||0
+Better Off Dead||| ||| |||0
+Dazed and Confused||| ||| |||0
+U-571||| ||| |||0
+Crimson Tide||| ||| |||0
+Under Siege||| ||| |||0
+Se7en||| ||| |||0
+Donnie Brasco||| ||| |||0
+Oceans 11, 12, 13||| ||| |||0
+American History X||| ||| |||0
+Layer Cake||| ||| |||0
+The Untouchables||| ||| |||0
+Carlito's Way||| ||| |||0
+The Host (2006)||| ||| |||0
+The Godfather Part III||| ||| |||0
+Ran||| ||| |||0
+Conspiracy Theory||| ||| |||0
+Stand By Me||| ||| |||0
+Run Lola Run||| ||| |||0
+Dreams (1990)||| ||| |||0
+Hot Fuzz||| ||| |||1
+The World's End||| ||| |||1
+Unstoppable (2010)||| ||| |||0
+The Dirty Dozen||| ||| |||0
+The Great Escape||| ||| |||0
+Escape from Alcatraz||| ||| |||0
+Crank||| ||| |||0
+The Transporter||| ||| |||0
+Breakfast at Tiffany's||| ||| |||1
+Zoolander||| ||| |||1
+Anchorman(s)||| ||| |||0
+Talladega Nights: The Ballad of Ricky Bobby||| ||| |||0
+Braveheart||| ||| |||0
+God of Gamblers||| ||| |||0
+Police Story 4||| ||| |||0
+Superman(s)||| ||| |||1
+The Italian Job||| ||| |||0
+The Quick and the Dead||| ||| |||1
+Watchmen||| ||| |||1
+Pan's Labyrinth||| ||| |||0
+Swordfish||| ||| |||0
+Speed Racer||| ||| |||0
+Training Day||| ||| |||1
+Kiss Kiss Bang Bang||| ||| |||0
+The Martian||| ||| |||1
+Mean Girls||| ||| |||0
+Star Trek III: The Search for Spock||| ||| |||1
+Star Trek IV: The Voyage Home||| ||| |||1
+Star Trek V: The Final Frontier||| ||| |||0
+Star Trek VI: The Undiscovered Country||| ||| |||0
+Star Trek Generations||| ||| |||0
+Star Trek: First Contact||| ||| |||0
+The Lost Boys||| ||| |||0
+The Mist||| ||| |||1
+Love and Mercy||| ||| |||1
+Borat||| ||| |||1
+Ip Man||| ||| |||0
+The Revenant||| ||| |||0
+Rear Window||| ||| |||1
+Paper Moon||| ||| |||0
+Gilda||| ||| |||1
+8 1/2||| ||| |||1
+Moonlight||| ||| |||0
+The Nice Guys||| ||| |||1
+Friday||| ||| |||1
+It (2017)||| ||| |||1
+Logan Lucky||| ||| |||1
+The Hitman's Bodyguard||| ||| |||1
+The Mummy (2017)||| ||| |||1
+Hacksaw Ridge||| ||| |||0
+Hail, Caesar!||| ||| |||0
+The Man from U.N.C.L.E.||| ||| |||1
+The Hateful Eight||| ||| |||1
+North by Northwest||| ||| |||0
+Pretty in Pink||| ||| |||0
+Spartacus||| ||| |||1
+Chinatown||| ||| |||1
+The Grand Budapest Hotel||| ||| |||1
+Isle of Dogs||| ||| |||1
+The Royal Tenenbaums||| ||| |||0
+Vertigo||| ||| |||0
+Mission Impossible: Fallout||| ||| |||1
+Big||| ||| |||1
+That Thing You Do!||| ||| |||0
+About Time||| ||| |||0
