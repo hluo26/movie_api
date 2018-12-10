@@ -2,6 +2,7 @@ package com.demo;
 import java.io.*;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,16 @@ public class Resource{
 	static {
 		Class<?> x = MethodHandles.lookup().lookupClass();
 		String path = x.getResource("movieList.txt").getPath();
-		File file  = new File(path);
+		
+		//In order to format the path correctly (replaces %20 with a space)
+		String decodedPath = null;
+		try {
+			decodedPath = URLDecoder.decode(path, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		File file  = new File(decodedPath);
 		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
