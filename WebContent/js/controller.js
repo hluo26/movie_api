@@ -2,12 +2,11 @@ var app = angular.module('myapp', []);
 
 app.controller("MovieController", function ($scope,$http) {
     $scope.list;
-    
     $scope.getmovielist = function(text1,choice1)
     {
     	console.log(typeof choice1);
     	console.log(typeof text1);
-    var url = "http://localhost:8080/movie/service/get/list";
+    	var url = "http://localhost:8080/movie/service/get/list";
     	$http(
     			{
     		        method: 'GET',
