@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import javax.ws.rs.core.Response.Status;
 
 /***    helloWorld Root Resource*/
 @Path("/")
@@ -209,13 +210,13 @@ public class Resource{
 	}
 	
 	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/post")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Response postback(
-			@QueryParam("name") String name,
-			@QueryParam("year") int year,
-			@QueryParam("genre") String genre,
-			@QueryParam("watched") Boolean watched
+			@FormParam("name") String name,
+			@FormParam("year") int year,
+			@FormParam("genre") String genre,
+			@FormParam("watched") Boolean watched
 			){
 		DataModel d1 = new DataModel();
 		d1.setName(name);
@@ -223,7 +224,8 @@ public class Resource{
 		d1.setGenre(genre);
 		d1.setWatched(watched);
 		l1.add(0,d1);
-		return Response.status(200).entity("Movie added successfully !!").build();
+		Response x = Response.ok().build();
+		return x;
 	}
 	
 	@DELETE

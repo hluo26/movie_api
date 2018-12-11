@@ -29,7 +29,7 @@ app.controller("MovieController", function ($scope,$http) {
     		        url: url,
     		        params: {name: name}
     		    }
-    			).then(
+    			).then(console.log(response),
         		function(response){
         			console.log(response);
         			$scope.list = response.data;
@@ -39,16 +39,25 @@ app.controller("MovieController", function ($scope,$http) {
     {
     	console.log(movie.name);
     	var url = "http://localhost:8080/movie/service/post";
-    	$http({
-    		method: 'POST',
-	        url: url,
-	        params: {name: movie.name, year: movie.year, genre: movie.genre, watched: movie.seen}
-    	}).then(
-        		function(response){
-        			alert("Success");
-        		}).catch(function() {
-        			alert("Problem");
-        		});
+        $http({
+            method: 'POST',
+            url: url,
+            data: $.param({
+                name: movie.name,
+                year: movie.year,
+                genre: movie.genre,
+                watched: movie.seen
+            }),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            // handle success things
+        	console.log(response);
+        	alert("Creating successfully!");
+        }).catch(function (err	) {
+            // handle error things
+        	console.log(err);  
+        	alert("Something Wrong!");
+        });
     };
 });
 
