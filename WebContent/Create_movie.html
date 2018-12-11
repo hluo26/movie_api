@@ -29,13 +29,32 @@
         <div class="row">
           <div class="col-sm-2">
             <div class="row"><a href="API_test.html">Search</a></div>
-            <div class="row"><a href="data_manipulate.html">Manage</a></div>
+            <div class="row"><a href="Create_movie.html">Create</a></div>
             <div class="row"><a href="index.html">Index</a></div>
             <span ng-bind="msg"></span>
           </div>
           <div class="col-sm-10">
-            <h5>List of movies</h5>
-            
+          	<div class="container"></div>
+            <form>
+            	<div class="form-group">
+            		<label for="moviename">Movie Name</label>
+            		<input type="text" class="form-control" id="name1" placeholder="Enter name">
+            	</div>
+            	<div class="form-group">
+            		<label for="movieyear">Movie Year</label>
+            		<input type="number" class="form-control" id="year1" placeholder="Enter year">
+            	</div>
+            	<div class="form-group">
+            		<label for="moviegenre">Movie Genre</label>
+            		<input type="text" class="form-control" id="genre1" placeholder="Enter genre">
+            	</div>
+            	<div class="form-group">
+            		<label for="movieseen">Movie Seen</label><br>
+            		<input type="checkbox" name="check" value="seen"> I have seen this movie<br>
+  					<input type="checkbox" name="check" value="unseen" checked> I haven't seen this movie<br>
+            	</div>
+            	
+            </form>
           </div>
         </div>
       </div>
