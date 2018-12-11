@@ -35,5 +35,20 @@ app.controller("MovieController", function ($scope,$http) {
         			$scope.list = response.data;
         		});
     };
+    $scope.CreateMovieToList = function(movie)
+    {
+    	console.log(movie.name);
+    	var url = "http://localhost:8080/movie/service/post";
+    	$http({
+    		method: 'POST',
+	        url: url,
+	        params: {name: movie.name, year: movie.year, genre: movie.genre, watched: movie.seen}
+    	}).then(
+        		function(response){
+        			alert("Success");
+        		}).catch(function() {
+        			alert("Problem");
+        		});
+    };
 });
 

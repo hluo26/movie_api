@@ -38,22 +38,33 @@
             <form>
             	<div class="form-group">
             		<label for="moviename">Movie Name</label>
-            		<input type="text" class="form-control" id="name1" placeholder="Enter name">
+            		<input type="text" class="form-control" id="name1" placeholder="Enter name" ng-model="movie.name">
             	</div>
             	<div class="form-group">
             		<label for="movieyear">Movie Year</label>
-            		<input type="number" class="form-control" id="year1" placeholder="Enter year">
+            		<input type="number" class="form-control" id="year1" placeholder="Enter year" ng-model="movie.year">
             	</div>
             	<div class="form-group">
             		<label for="moviegenre">Movie Genre</label>
-            		<input type="text" class="form-control" id="genre1" placeholder="Enter genre">
+            		<input type="text" class="form-control" id="genre1" placeholder="Enter genre" ng-model="movie.genre">
             	</div>
-            	<div class="form-group">
+            	<fieldset class="form-group">
             		<label for="movieseen">Movie Seen</label><br>
-            		<input type="checkbox" name="check" value="seen"> I have seen this movie<br>
-  					<input type="checkbox" name="check" value="unseen" checked> I haven't seen this movie<br>
-            	</div>
-            	
+            		
+            		<div class="form-check">
+      					<label class="form-check-label">
+        				<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="True" checked ng-model="movie.seen">
+        					I have seen this movie
+      					</label>
+    				</div>
+  					<div class="form-check">
+      					<label class="form-check-label">
+        				<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="False" checked ng-model="movie.seen">
+        					I haven't seen this movie
+      					</label>
+    				</div>
+            	</fieldset>
+            	<button type="submit" class="btn btn-primary" ng-click="CreateMovieToList(movie)">Submit</button>
             </form>
           </div>
         </div>

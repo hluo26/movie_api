@@ -211,19 +211,19 @@ public class Resource{
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/post")
-	public String postback(
-			@FormParam("name") String name,
-			@FormParam("year") int year,
-			@FormParam("genre") String genre,
-			@FormParam("watched") Boolean watched
+	public Response postback(
+			@QueryParam("name") String name,
+			@QueryParam("year") int year,
+			@QueryParam("genre") String genre,
+			@QueryParam("watched") Boolean watched
 			){
 		DataModel d1 = new DataModel();
 		d1.setName(name);
 		d1.setYear(year);
 		d1.setGenre(genre);
 		d1.setWatched(watched);
-		l1.add(d1);
-		return "POST!!! " + name + " " + year + " " + genre;
+		l1.add(0,d1);
+		return Response.status(200).entity("Movie added successfully !!").build();
 	}
 	
 	@DELETE
