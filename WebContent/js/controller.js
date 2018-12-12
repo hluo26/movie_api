@@ -29,10 +29,12 @@ app.controller("MovieController", function ($scope,$http) {
     		        url: url,
     		        params: {name: name}
     		    }
-    			).then(console.log(response),
+    			).then(
         		function(response){
         			console.log(response);
         			$scope.list = response.data;
+        			alert(name + " deleted");
+   //     			location.reload();
         		});
     };
     $scope.CreateMovieToList = function(movie)
@@ -58,6 +60,40 @@ app.controller("MovieController", function ($scope,$http) {
         	console.log(err);  
         	alert("Something Wrong!");
         });
+    };
+    
+    //where the magic happens
+    $scope.selected = {};
+    $scope.editMovie = function(movie)
+    {
+    	$scope.selected = angular.copy(movie);
+    };
+    $scope.getTemplate = function (movie) {  
+        if (movie.name === $scope.selected.name){  
+            return 'edit';  
+        }  
+        else return 'display';  
+    };
+    $scope.reset = function () {  
+    	   $scope.selected = {};  
+    };
+    
+    $scope.updateMovie = function(movie) {
+    	var url = "http://localhost:8080/movie/service/put";
+    	$http(
+    			{
+    		        method: 'PUT',
+    		        url: url,
+    		        params: {
+    		        	name: movie.name,
+    		        	oldName: movie.name
+    		        	}
+    		    }
+    			).then(function(response){
+        			console.log(response);
+        			$scope.list = response.data;
+        			alert(name + " updated!");
+        		});
     };
 });
 

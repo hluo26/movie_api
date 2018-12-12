@@ -208,6 +208,7 @@ public class Resource{
 		this.print();
 	    return Response.status(304).encoding("Movie not changed").build();
 	}
+
 	
 	@POST
 	@Path("/post")
