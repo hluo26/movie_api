@@ -70,9 +70,9 @@ app.controller("MovieController", function ($scope,$http) {
     };
     $scope.getTemplate = function (movie) {  
         if (movie.name === $scope.selected.name){  
-            return 'edit';  
+            return 'edit.html';  
         }  
-        else return 'display';  
+        else return 'display.html';  
     };
     $scope.reset = function () {  
     	   $scope.selected = {};  
