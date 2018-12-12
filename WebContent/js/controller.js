@@ -1,6 +1,6 @@
 var app = angular.module('myapp', []);
 
-app.controller("MovieController", function ($scope,$http) {
+app.controller("MovieController", function ($scope,$http,$window) {
     $scope.list;
     $scope.getmovielist = function(text1,choice1)
     {
@@ -64,7 +64,7 @@ app.controller("MovieController", function ($scope,$http) {
     
     //where the magic happens
     $scope.selected = {};
-    $scope.editMovie = function(movie)
+    /*$scope.editMovie = function(movie)
     {
     	$scope.selected = angular.copy(movie);
     };
@@ -76,23 +76,19 @@ app.controller("MovieController", function ($scope,$http) {
     };
     $scope.reset = function () {  
     	   $scope.selected = {};  
-    };
+    };*/
     
     $scope.updateMovie = function(movie) {
-    	var url = "http://localhost:8080/movie/service/put";
-    	$http(
-    			{
-    		        method: 'PUT',
-    		        url: url,
-    		        params: {
-    		        	name: movie.name,
-    		        	oldName: movie.name
-    		        	}
-    		    }
-    			).then(function(response){
-        			console.log(response);
-        			$scope.list = response.data;
-        			alert(name + " updated!");
+    	var url = "http://localhost:8080/movie/service/get/";
+    	$http({
+    		  method: 'GET',
+    		  url: url+movie.name
+    		}).then(function(response){
+        			console.log(response.data);
+        			$scope.selected = response.data;
+        			//if($scope.select!=null)
+        				//$window.location.href = 'http://localhost:8080/movie/Update_movie.html';
+        			//alert(name + " updated!");
         		});
     };
 });

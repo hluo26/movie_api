@@ -72,20 +72,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="x in list" ng-include="getTemplate(x)">
-                <!-- <tr ng-repeat="x in list">-->
+                <!--<tr ng-repeat="x in list" ng-include="getTemplate(x)">-->
+                <tr ng-repeat="x in list">
                 
-                <script type="text/ng-template" id="display.html">
-console.log("display")
+                <!--<script type="text/ng-template" id="display.html">-->
              		<td>{{x.name}}</td>
               	 	<td>{{x.year}}</td>
                		<td>{{x.genre}}</td>
                		<td>{{x.watched}}</td>
-               		<td><button type="button" class="btn btn-primary" ng-click="editMovie(x)">Edit</button>
+               		<td><button type="button" class="btn btn-primary" ng-click="updateMovie(x)">Edit</button>
                		<button type="button" class="btn btn-danger" ng-click="removeMovieFromList(x.name)">Delete</button></td>
-				</script>
+				<!--</script>-->
 				
-				<script type="text/ng-template" id="edit.html">  
+				<!--<script type="text/ng-template" id="edit.html">  
 console.log("edit")
     				<td><input type="text" ng-model=x.name class="form-control input-sm"/></td>  
     				<td><input type="number" ng-model=x.year class="form-control input-sm"/></td>  
@@ -100,7 +99,7 @@ console.log("edit")
      				<button type="button" class="btn btn-primary" ng-click="updateMovie(x)">Save</button>  
      				<button type="button" class="btn btn-danger" ng-click="reset()">Cancel</button>  
     				</td>  
-   				</script>
+   				</script>-->
 				  
                 </tr>
               </tbody>

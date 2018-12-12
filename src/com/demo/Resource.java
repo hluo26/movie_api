@@ -79,10 +79,27 @@ public class Resource{
 	}
 	
 	@GET  
-	@Produces(MediaType.TEXT_PLAIN)  
+	@Produces(MediaType.APPLICATION_JSON)  
 	@Path("/get/{name}") 
-	public String greet(@PathParam("name") String name){    
-		return "GET!!! " + name;  
+	public Response greet(@PathParam("name") String name){
+		DataModel d1 = new DataModel();
+		String decodedname = null;
+		try {
+			decodedname = URLDecoder.decode(name, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		if(l1.size()>0) {
+			for(DataModel x:l1)
+			{
+				if(x.getName().equals(decodedname))
+				{
+					d1 = x;
+				}
+			}
+		}
+		return Response.ok(d1).build();
 		}
 	
 	@GET
