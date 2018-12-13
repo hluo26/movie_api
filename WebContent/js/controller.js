@@ -78,7 +78,7 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies) {
     	   $scope.selected = {};  
     };*/
     
-    $scope.updateMovie = function(movie) {
+    $scope.saveMovie = function(movie) {
 
         console.log(movie);
         $cookies.put("name", movie.name);
@@ -90,12 +90,13 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies) {
         //alert(name + " updated!");
 
     };
-    
+   
+
 });
 
-
 app.controller('updateController',function ($scope,$http,$window,$cookies){
-	$scope.name = $cookies.get("name");
+	$scope.originalName = $cookies.get("name");
+	$scope.newName = $scope.originalName;
 	$scope.year = parseInt($cookies.get("year"),10);
 	$scope.genre = $cookies.get("genre");
 	if($cookies.get("watched")){
@@ -105,6 +106,31 @@ app.controller('updateController',function ($scope,$http,$window,$cookies){
 	{
 		$scope.watched = "False";
 	}
+	
+    $scope.updateMovie = function(){
+    	var url="http://localhost:8080/movie/service/put/movie";
+    	$http({
+    		method:'PUT',
+    		url:url,
+    		data: $.param({
+    			name: $scope.originalName,
+                changedName: $scope.newName,
+                changedYear: $scope.year,
+                changedGenre: $scope.genre,
+                changedWatched: $scope.watched
+            }),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            // handle success things
+        	console.log(response);
+        	alert("Updated successfully!");
+        }).catch(function (err	) {
+            // handle error things
+        	console.log(err);  
+        	alert("Something Wrong!");
+        });
+    };
+    
 	
 	
 });

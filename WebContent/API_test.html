@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/mine.css" />
   </head>
-  <body ng-controller="MovieController">
+  <body ng-controller="MovieController" ng-init="getmovielist('',undefined)">
     <div class="jumbotron grey-gradient color-block">
       <div class="container">
         <div class="row">
@@ -81,7 +81,7 @@
               	 	<td>{{x.year}}</td>
                		<td>{{x.genre}}</td>
                		<td>{{x.watched}}</td>
-               		<td><button type="button" class="btn btn-primary" ng-click="updateMovie(x)">Edit</button>
+               		<td><button type="button" class="btn btn-primary" ng-click="saveMovie(x)">Edit</button>
                		<button type="button" class="btn btn-danger" ng-click="removeMovieFromList(x.name)">Delete</button></td>
 				<!--</script>-->
 				

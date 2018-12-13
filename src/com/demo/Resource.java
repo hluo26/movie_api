@@ -151,7 +151,7 @@ public class Resource{
 					}
 					return Response.ok(l2).build();
 			}
-			else if(Orderby.equals("Seen"))
+			else if(Orderby.equals("Watched"))
 			{
 				if(cap.equals("Seen")||cap.equals("True")||cap.equals("Yes")||cap.equals("Y"))
 				{
@@ -186,25 +186,57 @@ public class Resource{
 		}
 	}
 	
+//	@PUT
+//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+//	@Path("/put/name")
+//	public Response updateMovieName(
+//			@FormParam("name") String name,
+//			@FormParam("year") int year,
+//			@FormParam("genre") String genre,
+//			@FormParam("watched") Boolean watched)
+//	{      
+//		System.out.println("Before: ");
+//		this.print();
+//		for(DataModel movie: l1) {
+//			if(movie.getName().equals(name)) {
+//				movie.setName(Newname);
+//				return Response.status(202).entity("Movie changed successfully !!").build();
+//			}
+//		}
+//		System.out.println("After: ");
+//		this.print();
+//	    return Response.status(304).encoding("Movie not changed").build();
+//	}
+	
+	
 	@PUT
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Path("/put/name")
-	public Response updateMovieName(@FormParam("name") String name,@FormParam("Changedname") String Newname)
+	@Path("/put/movie")
+	public Response updateMovieName(
+			@FormParam("name") String name,
+			@FormParam("changedName") String changedName,
+			@FormParam("changedYear") int changedYear,
+			@FormParam("changedGenre") String changedGenre,
+			@FormParam("changedWatched") Boolean changedWatched)
 	{      
 		System.out.println("Before: ");
 		this.print();
 		for(DataModel movie: l1) {
 			if(movie.getName().equals(name)) {
-				movie.setName(Newname);
-				return Response.status(202).entity("Movie changed successfully !!").build();
+				movie.setName(changedName);
+				movie.setYear(changedYear);
+				movie.setGenre(changedGenre);
+				movie.setWatched(changedWatched);
+				
+				return Response.ok().build();
 			}
 		}
 		System.out.println("After: ");
 		this.print();
-	    return Response.status(304).encoding("Movie not changed").build();
+	    return Response.status(304).encoding("Movie not updated").build();
 	}
 	
-	@PUT
+	/*@PUT
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/put/seen")
 	public Response updateMovieSeen(@FormParam("name") String name)
@@ -224,7 +256,7 @@ public class Resource{
 		System.out.println("After: ");
 		this.print();
 	    return Response.status(304).encoding("Movie not changed").build();
-	}
+	}*/
 
 	
 	@POST
