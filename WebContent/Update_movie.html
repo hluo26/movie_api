@@ -6,11 +6,12 @@
     <title>Movie API</title>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.7.5/angular-cookies.min.js"></script>
     <script src="js/controller.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/mine.css" />
   </head>
-  <body ng-controller="MovieController">
+  <body ng-controller="updateController">
     <div class="jumbotron grey-gradient color-block">
       <div class="container">
         <div class="row">
@@ -39,28 +40,28 @@
             <form>
             	<div class="form-group">
             		<label for="moviename">Movie Name</label>
-            		<input type="text" class="form-control" id="name1" placeholder="Enter name" ng-model="movie.name" ng-init="selected.name">
+            		<input type="text" class="form-control" id="name1" placeholder="Enter name" ng-model="name">
             	</div>
             	<div class="form-group">
             		<label for="movieyear">Movie Year</label>
-            		<input type="number" class="form-control" id="year1" placeholder="Enter year" ng-model="movie.year">
+            		<input type="number" class="form-control" id="year1" placeholder="Enter year" ng-model="year">
             	</div>
             	<div class="form-group">
             		<label for="moviegenre">Movie Genre</label>
-            		<input type="text" class="form-control" id="genre1" placeholder="Enter genre" ng-model="movie.genre">
+            		<input type="text" class="form-control" id="genre1" placeholder="Enter genre" ng-model="genre">
             	</div>
             	<fieldset class="form-group">
             		<label for="movieseen">Movie Seen</label><br>
             		
             		<div class="form-check">
       					<label class="form-check-label">
-        				<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="True" checked ng-model="movie.seen">
+        				<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="True" checked ng-model="watched">
         					I have seen this movie
       					</label>
     				</div>
   					<div class="form-check">
       					<label class="form-check-label">
-        				<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="False" checked ng-model="movie.seen">
+        				<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="False" checked ng-model="watched">
         					I haven't seen this movie
       					</label>
     				</div>

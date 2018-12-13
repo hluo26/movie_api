@@ -6,6 +6,7 @@
     <title>Movie API</title>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.7.5/angular-cookies.min.js"></script>
     <script src="js/controller.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/mine.css" />
@@ -46,7 +47,7 @@
                     <option>Name</option>
                     <option>Year</option>
                     <option>Genre</option>
-                    <option>Seen</option>
+                    <option>Watched</option>
                   </select>
                 </div>
                 
@@ -57,7 +58,7 @@
                 </div>
               </div>
             </form>
-            <div ng-show="choice1=='Seen'">
+            <div ng-show="choice1=='Watched'">
             	Please enter words like "Seen, True, Yes or Y". Otherwise, "Unseen, False, No or N"
             </div>
             <div class="table-responsive">

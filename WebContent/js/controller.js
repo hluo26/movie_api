@@ -1,6 +1,6 @@
-var app = angular.module('myapp', []);
+var app = angular.module('myapp', ['ngCookies']);
 
-app.controller("MovieController", function ($scope,$http,$window) {
+app.controller("MovieController", function ($scope,$http,$window,$cookies) {
     $scope.list;
     $scope.getmovielist = function(text1,choice1)
     {
@@ -79,17 +79,33 @@ app.controller("MovieController", function ($scope,$http,$window) {
     };*/
     
     $scope.updateMovie = function(movie) {
-    	var url = "http://localhost:8080/movie/service/get/";
-    	$http({
-    		  method: 'GET',
-    		  url: url+movie.name
-    		}).then(function(response){
-        			console.log(response.data);
-        			$scope.selected = response.data;
-        			//if($scope.select!=null)
-        				//$window.location.href = 'http://localhost:8080/movie/Update_movie.html';
-        			//alert(name + " updated!");
-        		});
+
+        console.log(movie);
+        $cookies.put("name", movie.name);
+        $cookies.put("genre", movie.genre);
+        $cookies.put("year", movie.year);
+        $cookies.put("watched", movie.watched);
+        //if($scope.select!=null)
+        $window.location.href = 'http://localhost:8080/movie/Update_movie.html';
+        //alert(name + " updated!");
+
     };
+    
+});
+
+
+app.controller('updateController',function ($scope,$http,$window,$cookies){
+	$scope.name = $cookies.get("name");
+	$scope.year = parseInt($cookies.get("year"),10);
+	$scope.genre = $cookies.get("genre");
+	if($cookies.get("watched")){
+		$scope.watched = "True";
+	}
+	else
+	{
+		$scope.watched = "False";
+	}
+	
+	
 });
 
