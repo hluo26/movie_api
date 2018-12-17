@@ -1,12 +1,17 @@
 var app = angular.module('myapp', ['ngCookies']);
 
-app.controller("MovieController", function ($scope,$http,$window,$cookies) {
+app.run(function($location,$rootScope) {
+    $rootScope.server = {url: location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '')};
+});
+
+app.controller("MovieController", function ($scope,$http,$window,$cookies,$location,$rootScope) {
     $scope.list;
     $scope.getmovielist = function(text1,choice1)
     {
     	console.log(typeof choice1);
     	console.log(typeof text1);
-    	var url = "http://localhost:8080/movie/service/get/list";
+    	console.log($rootScope.server.url);
+    	var url = $rootScope.server.url+"/movie/service/get/list";
     	$http(
     			{
     		        method: 'GET',
@@ -22,7 +27,7 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies) {
     $scope.removeMovieFromList = function(name)
     {
     	console.log(typeof name);
-    	var url = "http://localhost:8080/movie/service/delete";
+    	var url = $rootScope.server.url+"/movie/service/delete";
     	$http(
     			{
     		        method: 'DELETE',
@@ -40,7 +45,7 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies) {
     $scope.CreateMovieToList = function(movie)
     {
     	console.log(movie.name);
-    	var url = "http://localhost:8080/movie/service/post";
+    	var url = $rootScope.server.url+"/movie/service/post";
         $http({
             method: 'POST',
             url: url,
@@ -86,7 +91,7 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies) {
         $cookies.put("year", movie.year);
         $cookies.put("watched", movie.watched);
         //if($scope.select!=null)
-        $window.location.href = 'http://localhost:8080/movie/Update_movie.html';
+        $window.location.href = $rootScope.server.url+'/movie/Update_movie.html';
         //alert(name + " updated!");
 
     };
@@ -94,7 +99,7 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies) {
 
 });
 
-app.controller('updateController',function ($scope,$http,$window,$cookies){
+app.controller('updateController',function ($scope,$http,$window,$cookies,$location,$rootScope){
 	$scope.originalName = $cookies.get("name");
 	$scope.newName = $scope.originalName;
 	$scope.year = parseInt($cookies.get("year"),10);
@@ -108,7 +113,7 @@ app.controller('updateController',function ($scope,$http,$window,$cookies){
 	}
 	
     $scope.updateMovie = function(){
-    	var url="http://localhost:8080/movie/service/put/movie";
+    	var url=$rootScope.server.url+"/movie/service/put/movie";
     	$http({
     		method:'PUT',
     		url:url,
