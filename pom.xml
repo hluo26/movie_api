@@ -19,7 +19,14 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.1</version>
         <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
+          <webResources>
+            <resource>
+              <directory>WebContent</directory>
+            </resource>
+            <resource>
+              <directory>src/com/demo</directory>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
     </plugins>
