@@ -4,6 +4,7 @@ import java.lang.invoke.MethodHandles;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ws.rs.*;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.Response.Status;
 /***    helloWorld Root Resource*/
 @Path("/")
 public class Resource{  
-	private static ArrayList<DataModel> l1 = new ArrayList<>();
+	private static HashMap<String,DataModel> h1 = new HashMap<>();
 
 	static {
 		Class<?> x = MethodHandles.lookup().lookupClass();
@@ -44,15 +45,22 @@ public class Resource{
 						try {
 							movie.setYear(Integer.parseInt(movieDetailsArray[1]));
 						}catch(Exception e){
-							System.out.println("Year is not an Integer");
+							//System.out.println("Year is not an Integer");
 						}finally {
 							movie.setGenre(movieDetailsArray[2]);
 							if(movieDetailsArray[3].equals("1")) 
 								movie.setWatched(true);
 							else
 								movie.setWatched(false);
-							
-							l1.add(movie);
+							//check if there is duplicate movie from the movie list
+							if(!h1.containsKey(movieDetailsArray[0]))
+							{
+								h1.put(movieDetailsArray[0],movie);
+							}
+							else
+							{
+								System.out.println("Duplicate");
+							}
 						}
 					}
 					else
@@ -90,12 +98,12 @@ public class Resource{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		if(l1.size()>0) {
-			for(DataModel x:l1)
+		if(h1.size()>0) {
+			for(String x:h1.keySet())
 			{
-				if(x.getName().equals(decodedname))
+				if(x.equals(decodedname))
 				{
-					d1 = x;
+					d1 = h1.get(x);
 				}
 			}
 		}
@@ -108,80 +116,88 @@ public class Resource{
 	public Response listback(@DefaultValue("Not") @QueryParam("orderby") String Orderby,
 			@DefaultValue("undefined") @QueryParam("value") String Value)
 	{
-		System.out.println("Order is "+Orderby+" Value is "+Value);
+		//System.out.println("Order is "+Orderby+" Value is "+Value);
 		
 		ArrayList<DataModel> l2 = new ArrayList<>();
+		//if not special request for get method, just return the whole movie list
 		if(Value.equals("") || Value.equals("undefined") || Orderby.equals("Not"))
 		{
-			return Response.ok(l1).build();
+			for(String x:h1.keySet())
+			{
+				l2.add(h1.get(x));
+			}
+			return Response.ok(l2).build();
 		}
 		else
 		{
-
+			//Capitalize the first letter of the query parameter
 			String cap = Value.substring(0, 1).toUpperCase() + Value.substring(1);
 			if(Orderby.equals("Name"))
 			{
-					for(DataModel x:l1)
+					for(String x:h1.keySet())
 					{
-						if(x.getName().startsWith(cap))
+						if(x.startsWith(cap))
 						{
-							l2.add(x);
+							l2.add(h1.get(x));
 						}
 					}
 					return Response.ok(l2).build();
 			}
 			else if(Orderby.equals("Year"))
 			{
-					for(DataModel x:l1)
+					for(String x:h1.keySet())
 					{
-						if((x.getYear() + "").startsWith(cap)){
-							l2.add(x);
+						DataModel y = h1.get(x);
+						if((y.getYear() + "").startsWith(cap)){
+							l2.add(y);
 						}
 					}
 					return Response.ok(l2).build();
 			}
 			else if(Orderby.equals("Genre"))
 			{
-					for(DataModel x:l1)
-					{
-						if(x.getGenre().startsWith(cap))
-						{
-							l2.add(x);
-						}
+				for(String x:h1.keySet())
+				{
+					DataModel y = h1.get(x);
+					if((y.getGenre() + "").startsWith(cap)){
+						l2.add(y);
 					}
-					return Response.ok(l2).build();
+				}
+				return Response.ok(l2).build();
 			}
 			else if(Orderby.equals("Watched"))
 			{
 				if(cap.equals("Seen")||cap.equals("True")||cap.equals("Yes")||cap.equals("Y"))
 				{
-					for(DataModel x:l1)
+					for(String x:h1.keySet())
 					{
-						if(x.isWatched())
+						DataModel y = h1.get(x);
+						if(y.isWatched())
 						{
-							l2.add(x);
+							l2.add(y);
 						}
 					}
 					return Response.ok(l2).build();
 				}
 				else if(cap.equals("Unseen")||cap.equals("False")||cap.equals("No")||cap.equals("N"))
 				{
-					for(DataModel x:l1)
+					for(String x:h1.keySet())
 					{
-						if(!x.isWatched())
+						DataModel y = h1.get(x);
+						if(!y.isWatched())
 						{
-							l2.add(x);
+							l2.add(y);
 						}
 					}
 					return Response.ok(l2).build();
 				}
 				else
 				{
-					return Response.ok(l1).build();
+					return Response.ok(l2).build();
 				}
 			}
 			else {
-				return Response.ok(l1).build();
+				return Response.ok(l2).build();
 			}
 		}
 	}
@@ -221,14 +237,24 @@ public class Resource{
 	{      
 		System.out.println("Before: ");
 		this.print();
-		for(DataModel movie: l1) {
-			if(movie.getName().equals(name)) {
-				movie.setName(changedName);
-				movie.setYear(changedYear);
-				movie.setGenre(changedGenre);
-				movie.setWatched(changedWatched);
-				
-				return Response.ok().build();
+		for(String x:h1.keySet())
+		{
+			//checking duplicate
+			if(x.equals(name)) {
+				if(h1.containsKey(changedName))
+				{
+					return Response.status(Response.Status.CONFLICT).build();
+				}
+				else
+				{
+					DataModel movie = h1.get(x);
+					movie.setName(changedName);
+					movie.setYear(changedYear);
+					movie.setGenre(changedGenre);
+					movie.setWatched(changedWatched);
+					
+					return Response.ok().build();
+				}
 			}
 		}
 		System.out.println("After: ");
@@ -261,33 +287,44 @@ public class Resource{
 	
 	@POST
 	@Path("/post")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Response postback(
-			@FormParam("name") String name,
-			@FormParam("year") int year,
-			@FormParam("genre") String genre,
-			@FormParam("watched") Boolean watched
+			@QueryParam("name") String name,
+			@QueryParam("year") int year,
+			@QueryParam("genre") String genre,
+			@QueryParam("watched") Boolean watched
 			){
-		DataModel d1 = new DataModel();
-		d1.setName(name);
-		d1.setYear(year);
-		d1.setGenre(genre);
-		d1.setWatched(watched);
-		l1.add(0,d1);
-		Response x = Response.ok().build();
-		return x;
+		//checking duplicate
+		if(h1.containsKey(name))
+		{
+			return Response.status(Response.Status.CONFLICT).build();
+		}
+		else
+		{
+			DataModel d1 = new DataModel();
+			d1.setName(name);
+			d1.setYear(year);
+			d1.setGenre(genre);
+			d1.setWatched(watched);
+			h1.put(name,d1);
+			return Response.ok().build();
+		}
 	}
 	
 	@DELETE
 	@Path("/delete")
 	public Response deleteMovieById(@DefaultValue("noName") @QueryParam("name") String name)
 	{   
+		ArrayList<DataModel> l2 = new ArrayList<>();
 		if(name != "noName") {
-			for(DataModel movie: l1) {
-				if((movie.getName().toLowerCase()).equals( name.toLowerCase())) {
-					l1.remove(movie);
+			for(String movie: h1.keySet()) {
+				if((movie.toLowerCase()).equals( name.toLowerCase())) {
+					h1.remove(movie);
 					System.out.println(name + " Deleted");
-					return Response.ok(l1).build();
+					for(String x:h1.keySet())
+					{
+						l2.add(h1.get(x));
+					}
+					return Response.ok(l2).build();
 	//				return Response.status(202).entity("Movie deleted successfully !!").build();
 				}
 			}
@@ -297,8 +334,8 @@ public class Resource{
 
 	
 	public void print(){
-		for(DataModel movie: l1) {
-			System.out.print(movie.getName() +" ");
+		for(String movie:h1.keySet()) {
+			System.out.print(movie +" ");
 			System.out.println();
 		}
 	}

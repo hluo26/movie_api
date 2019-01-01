@@ -49,13 +49,13 @@ app.controller("MovieController", function ($scope,$http,$window,$cookies,$locat
         $http({
             method: 'POST',
             url: url,
-            data: $.param({
+            params: {
                 name: movie.name,
                 year: movie.year,
                 genre: movie.genre,
                 watched: movie.seen
-            }),
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }
+            //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function (response) {
             // handle success things
         	console.log(response);
